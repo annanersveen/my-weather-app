@@ -45,7 +45,7 @@ i {
 #degrees {
   display: inline-block;
   text-align: center;
-  color: #8c8c8c;
+  color: black;
   font-size: 40px;
   margin-left: 15px;
   margin-bottom: 5px;
@@ -54,7 +54,7 @@ i {
 #seperator {
   display: inline-block;
   text-align: center;
-  color: #8c8c8c;
+  color: black;
   font-size: 15px;
   margin-left: 1px;
   margin-bottom: 1px;
@@ -63,7 +63,7 @@ i {
 #celsius {
   display: inline-block;
   text-align: center;
-  color: #8c8c8c;
+  color: black;
   font-size: 15px;
   margin-left: 10px;
   margin-bottom: 0px;
@@ -72,7 +72,7 @@ i {
 #farenheit {
   display: inline-block;
   text-align: center;
-  color: #8c8c8c;
+  color: black;
   font-size: 15px;
   margin-left: 1px;
   margin-bottom: 5px;
