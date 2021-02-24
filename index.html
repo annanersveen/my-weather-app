@@ -1,19 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<h1>
-    Hello World!
-</h1>
 
-<h2>
-    Example page 
-</h2>
-<script src="script.js"></script>
+<head>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+    <script type="index.js" src="src/index.js"></script>
+    <script src="https://kit.fontawesome.com/14f3bd56ef.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework wireframe</title>
+    <link rel="stylesheet" href="src/styles.css" />
+</head>
+
+<body>
+    <div class="container">
+        <form id="nowCity">
+            <input type="text" id="city-input" placeholder="Enter city.." />
+            <div class="searchButton">
+                <button type="sumbit" class="btn btn-outline-success">Search</button>
+                <button type="sumbit" id="current-position-button" class="btn btn-outline-success">
+                    Current
+                </button>
+            </div>
+        </form>
+        <div id="todayTime">
+            <span>Today 13:11</span>
+        </div>
+        <h2 id="currentCity">
+            London
+        </h2>
+        <div id="degrees">
+            9°C
+        </div>
+        <a href="#" id="celsius">
+            °C
+        </a>
+        <a id="seperator">
+            |
+        </a>
+        <a href="#" id="farenheit">
+            °F
+        </a>
+        <br />
+        <i class="fas fa-cloud-rain"></i>
+        <div class="todayForecast">
+            <p>
+                Mostly clouded
+                <br />
+                Wind: s 5 mph
+                <br />
+                Chance of rain: 30%
+            </p>
+        </div>
+        <div class="row align-items-start">
+            <div class="col">
+                Wednesday
+            </div>
+            <div class="col">
+                Thursday
+            </div>
+            <div class="col">
+                Friday
+            </div>
+            <div class="col">
+                Saturday
+            </div>
+            <div class="col">
+                Sunday
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col">
+                9°C
+            </div>
+            <div class="col">
+                12°C
+            </div>
+            <div class="col">
+                11°C
+            </div>
+            <div class="col">
+                6°C
+            </div>
+            <div class="col">
+                5°C
+            </div>
+        </div>
+        <div class="row align-items-end">
+            <div class="col">
+                <i class="fas fa-cloud-showers-heavy"></i>
+            </div>
+            <div class="col">
+                <i class="fas fa-cloud-showers-heavy"></i>
+            </div>
+            <div class="col">
+                <i class="fas fa-sun"></i>
+            </div>
+            <div class="col">
+                <i class="fas fa-cloud-sun-rain"></i>
+            </div>
+            <div class="col">
+                <i class="fas fa-cloud-showers-heavy"></i>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
