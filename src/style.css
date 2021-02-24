@@ -16,6 +16,14 @@ body {
   position: relative;
 }
 
+i {
+  font-size: 70px;
+  color: #707070;
+  display: inline-block;
+  padding-top: 10px;
+  margin-left: 20px;
+  margin-bottom: 40px;
+
 .searchButton {
   display: inline-block;
 }
@@ -70,20 +78,16 @@ body {
   margin-bottom: 5px;
 }
 
+#openSource {
+text-align: center;
+display: block;
+}
+
 .todayForecast {
   color: #8c8c8c;
   font-size: 15px;
   margin-left: 75px;
   display: inline-block;
-  margin-bottom: 40px;
-}
-
-i {
-  font-size: 70px;
-  color: #707070;
-  display: inline-block;
-  padding-top: 10px;
-  margin-left: 20px;
   margin-bottom: 40px;
 }
 
