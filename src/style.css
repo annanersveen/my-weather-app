@@ -78,9 +78,12 @@ i {
   margin-bottom: 5px;
 }
 
-#openSource {
-text-align: center;
-display: block;
+#open-source {
+  text-align: left;
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 15px;
+  color: black;
 }
 
 .todayForecast {
