@@ -1,81 +1,79 @@
-let currentTime = new Date();
-
-let days = [
-  `Sun`,
-  `Mon`,
-  `Tue`,
-  `Wed`,
-  `Thur`,
-  `Fri`,
-  `Sat`
-];
-
-let day = days[currentTime.getDay()];
-let hour = currentTime.getHours();
-let minutes = currentTime.getMinutes();
-let today = document.querySelector("#todayTime");
-today.innerHTML = `${day} ${hour}:${minutes}`;
-
-function yourCity(event) {
-  event.preventDefault();
-  let cityInput = document.querySelector("#city-input");
-  let cityOutPut = document.querySelector("#currentCity");
-  cityOutPut.innerHTML = `${cityInput.value}`;
+function formatDate (timestamp){
+    let date = new Date (timestamp);
+   
+    let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ]; 
+  let day= days[date.getDay()];
+  return `${day} ${formatHours(timestamp)}`;
 }
 
-let searchButton = document.querySelector("#nowCity");
-searchButton.addEventListener("submit", yourCity);
 
-function showWeather(event) {
-  event.preventDefault();
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-  let searchCity = document.querySelector("#city-input");
-  let currentCity = document.querySelector("#currentCity");
-  currentCity.innerHTML = `${searchCity.value}`;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchCity.value}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(showTemperature);
+function formatHours (timestamp){
+    let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${hours}:${minutes}`;
 }
 
-let searchForm = document.querySelector("#nowCity");
-searchForm.addEventListener("submit", showWeather);
+function displayTemprature (response){
+    console.log(response.data);
+    let temperatureElement = document.querySelector("#degrees");
+  let cityElement = document.querySelector("#currentCity");
+  let descriptionElement = document.querySelector("#condition");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  let dateElement = document.querySelector("#todayTime");
+   let iconElement = document.querySelector("#icon");
 
-function showTemperature(response) {
-  let city = response.data.name;
-  let temperature = Math.round(response.data.main.temp);
-  document.querySelector("#currentCity").innerHTML = `${city}`;
-  document.querySelector("#degrees").innerHTML = `${temperature} °C`;
+
+   celsiusTemperature = response.data.main.temp;
+
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  cityElement.innerHTML = response.data.name;
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-let city = "London";
-let units = `metric`;
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-axios.get(apiUrl).then(showTemperature);
-
-function displayFarenheit() {
-  let tempFarenheit = document.querySelector("#degrees");
-  tempFarenheit.innerHTML = `37.4°F`;
-}
-let convertFarenheit = document.querySelector("#farenheit");
-convertFarenheit.addEventListener("click", displayFarenheit);
-
-function displayCelsius() {
-  let tempCelsius = document.querySelector("#degrees");
-  tempCelsius.innerHTML = `- 3ºC`;
-}
-let convertCelsius = document.querySelector("#celsius");
-convertCelsius.addEventListener("click", displayCelsius);
-
-function getPosition(position) {
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-  let units = `metric`;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(showTemperature);
+function displayForecast(response){
+    let forecastElement=document.querySelector("#")
 }
 
-navigator.geolocation.getCurrentPosition(getPosition);
 
-let currentLocation = document.querySelector("#current-position-button");
-currentLocation.addEventListener("click", getPosition);
+function search(city){
+let apiKey= "dd61b0a83dcb0d5d9c519c2683f87b54";
+let apiUrl= `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+axios.get(apiUrl).then(displayTemprature);
+}
+
+
+function handleSubmit(event){
+    event.preventDefault();
+    cityInputElement= document.querySelector("#city-input");
+    search(cityInputElement.value);
+}
+
+search("Sydney");
+
+let form= document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
