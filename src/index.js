@@ -50,7 +50,7 @@ function displayTemprature (response){
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
 iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
@@ -73,7 +73,31 @@ function handleSubmit(event){
     search(cityInputElement.value);
 }
 
-search("Sydney");
+function displayFarenheitTemp(event){
+    event.preventDefault();
+    let temperatureElement=document.querySelector("#degrees");
+
+let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
+temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+ 
+  let temperatureElement = document.querySelector("#degrees");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature=null;
 
 let form= document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+
+let farenheitLink= document.querySelector("#farenheit");
+farenheitLink.addEventListener ("click", displayFarenheitTemp);
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+search("London");

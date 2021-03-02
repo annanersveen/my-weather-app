@@ -64,7 +64,7 @@ i {
   display: inline-block;
   text-align: center;
   color: black;
-  font-size: 15px;
+  font-size: 18px;
   margin-left: 10px;
   margin-bottom: 0px;
 }
@@ -72,8 +72,8 @@ i {
 #farenheit {
   display: inline-block;
   text-align: center;
-  color: black;
-  font-size: 15px;
+  color: blue;
+  font-size: 18px;
   margin-left: 1px;
   margin-bottom: 5px;
 }
@@ -110,4 +110,23 @@ i {
   position: relative;
   margin-top: 10px;
   font-weight: 7px;
+}
+
+.body-container {
+  padding: 1px;
+}
+
+.todayForecast {
+  margin: 0 auto;
+  padding-left: 200px;
+}
+
+.active {
+  color: black;
+  cursor: default;
+  text-decoration: none;
+}
+
+.active:hover {
+  text-decoration: none;
 }
