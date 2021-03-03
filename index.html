@@ -13,102 +13,68 @@
     <title>Weather App</title>
 </head>
 
-<body class="body-container">
-    <div class="container">
-        <form id="search-form" class="mb-4">
-            <input type="search" id="city-input" placeholder="Enter city.." autocomplete="off" />
-            <div class="searchButton">
-                <button type="sumbit" class="btn btn-outline-success">Search</button>
-                <button type="sumbit" id="current-position-button" class="btn btn-outline-success">
-                    Current
-                </button>
+<body class="container">
+    <div class="weather-app-wrapper">
+        <div class="weather-app">
+        <form id="search-form" class="mb-3">
+            <div class="row">
+                <div class="col-9">
+            <input 
+            type="search" 
+            id="city-input" 
+            placeholder="Enter city.." 
+            autocomplete="off" 
+            />
+            <div 
+            class= "col-4"
+            id="searchButton">
+                <button 
+                type="sumbit" 
+                class="btn btn-outline-success"
+                >Search
+            </button>
+            </div>
             </div>
         </form>
         <div>
             Last Updated: <span id="todayTime"></span>
         </div>
+        <span id="condition">Mostly clouded
+        </span>
         <h2 id="currentCity">
             London
         </h2>
-        <div id="degrees">
-        </div>
-        <a href="#" id="celsius" class="active">°C
-        </a>
+        <div class="row">
+        <div class="col-9">
+            <div class="clearfix weather-temprature">
+                <img src="http://openweathermap.org/img/wn/50d@2x.png" 
+                alt="Haze" 
+                id="icon" 
+                class="float-left" />
+        <div class="today-forecast">
+       <strong id="degrees"></strong
+        ><span class="units">
+            <a href="#" id="celsius" class="active">°C
+        </a></span>
         <a id="seperator">   |
         </a>
         <a href="#" id="farenheit" class="reactive">°F
         </a>
-        <br />
-        <div class="clearfix weather-temprature">
-            <img
-            src="http://openweathermap.org/img/wn/50d@2x.png"
-            alt="Haze"
-            id="icon"
-            />
-        </div>
-        <div class="todayForecast">
-            <p id="condition">
-                Mostly clouded
-            </p>
-            <p>
-                Humidity: <span id="humidity"></span>%
-            </p>
-             <p>
-                Wind: <span id="wind"></span> Km/H
-            </p>
-        </div>
-        <div class="row align-items-start">
-            <div class="col">
-                Wednesday
-            </div>
-            <div class="col">
-                Thursday
-            </div>
-            <div class="col">
-                Friday
-            </div>
-            <div class="col">
-                Saturday
-            </div>
-            <div class="col">
-                Sunday
             </div>
         </div>
-        <div class="row align-items-center">
-            <div class="col">
-                9°C
-            </div>
-            <div class="col">
-                12°C
-            </div>
-            <div class="col">
-                11°C
-            </div>
-            <div class="col">
-                6°C
-            </div>
-            <div class="col">
-                5°C
-            </div>
-        </div>
-        <div class="row align-items-end">
-            <div class="col">
-                <i class="fas fa-cloud-showers-heavy"></i>
-            </div>
-            <div class="col">
-                <i class="fas fa-cloud-showers-heavy"></i>
-            </div>
-            <div class="col">
-                <i class="fas fa-sun"></i>
-            </div>
-            <div class="col">
-                <i class="fas fa-cloud-sun-rain"></i>
-            </div>
-            <div class="col">
-                <i class="fas fa-cloud-showers-heavy"></i>
-            </div>
         </div>
     </div>
+    <div class="col-6">
+            <ul class="current-condition">
+            <li>Humidity:<span id="humidity"></span>%</li>
+             <li>Wind:<span id="wind"></span> Km/H</li>
+            </ul>
+        </div>
+    </div>
+        <div class="row weather-forecast" id="forecast">
+    </div>
+    </div>
+</div>
     <div id="open-source"> <a href="https://github.com/annanersveen/my-weather-app">Open-Source code</a> by Anna Nersveen</div>
     <script src="src/index.js"></script>
 </body>
